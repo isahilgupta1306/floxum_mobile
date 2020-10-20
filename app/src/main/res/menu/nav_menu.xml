@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/nav_home"
+        android:visible="true">
+
+    </item>
+    <item
+        android:id="@+id/explore"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_explore_24"
+        android:title="@string/nav_explore"
+        android:visible="true" />
+    <item
+        android:id="@+id/event"
+        android:icon="@drawable/ic_baseline_event_24"
+        android:title="@string/nav_event"
+        android:visible="true" />
+    <item
+        android:id="@+id/profile"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="@string/nav_profile"
+        android:visible="true" />
+</menu>

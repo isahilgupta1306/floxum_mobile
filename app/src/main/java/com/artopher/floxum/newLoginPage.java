@@ -37,7 +37,9 @@ public class newLoginPage extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext() , "Ruko Bhai SQL se karna hai connect" , Toast.LENGTH_LONG);
+
+                Intent intent = new Intent(getApplicationContext(),DefaultPage.class);
+                startActivity(intent);
             }
         });
 
@@ -50,7 +52,12 @@ public class newLoginPage extends AppCompatActivity {
         });
 
 
-
-
     }
+    public void forgotPassword(View view)
+    {
+        Intent intent = new Intent(getApplicationContext(),ForgotPasswordPage.class);
+        startActivity(intent);
+    }
+
+
 }
