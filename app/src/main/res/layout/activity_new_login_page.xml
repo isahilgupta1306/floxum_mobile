@@ -88,8 +88,8 @@
         app:layout_constraintBottom_toTopOf="@+id/login_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.947" />
+        app:layout_constraintTop_toBottomOf="@+id/login_girl"
+        app:layout_constraintVertical_bias="0.645" />
 
     <TextView
         android:id="@+id/login_text"
