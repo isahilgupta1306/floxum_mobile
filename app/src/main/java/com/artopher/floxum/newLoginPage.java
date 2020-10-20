@@ -11,13 +11,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class newLoginPage extends AppCompatActivity {
-    Button loginButton , newSign_up;
-    TextView forgot_pw , login_to_continue;
-    ImageView login_girl;
-    EditText email_editText , passwordEditText;
-    int duration = 2000;
+import com.google.android.material.textfield.TextInputLayout;
 
+public class newLoginPage extends AppCompatActivity {
+    Button loginButton ;
+    TextView forgot_pw , login_to_continue , newSign_up;
+    ImageView login_girl;
+    int duration = 2000;
+    TextInputLayout email_editText ,passwordEditText  ;
+    ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +27,12 @@ public class newLoginPage extends AppCompatActivity {
 
         //Hooks
         loginButton =(Button)findViewById(R.id.login_button);
-        newSign_up =(Button)findViewById(R.id.newsign_up_button);
+       newSign_up =(TextView)findViewById(R.id.newSign_up);
         forgot_pw=(TextView)findViewById(R.id.forgot);
         login_to_continue=(TextView)findViewById(R.id.login_text);
         login_girl=(ImageView)findViewById(R.id.login_girl);
-        passwordEditText=(EditText)findViewById(R.id.passwordEditText);
-        email_editText=(EditText)findViewById(R.id.email_editText);
+        passwordEditText=(TextInputLayout)findViewById(R.id.outlinedTextField2);
+        email_editText=(TextInputLayout)findViewById(R.id.outlinedTextField);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
