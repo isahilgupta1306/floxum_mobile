@@ -38,6 +38,12 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.0"
     implementation 'androidx.core:core-ktx:1.3.1'
 
+    //circlular imageview
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //cardview
+    implementation "androidx.cardview:cardview:1.0.0"
+
 
 
 }

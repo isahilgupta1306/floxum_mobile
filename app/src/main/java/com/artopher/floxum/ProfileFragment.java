@@ -1,5 +1,6 @@
 package com.artopher.floxum;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +18,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment {
+
+    ExpandableHeightGridVIew gridView;
+    int images[] = {R.drawable.image2,R.drawable.image3,R.drawable.image4,R.drawable.image5,R.drawable.image2};
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,9 +53,59 @@ public class ProfileFragment extends Fragment {
         return fragment;
     }
 
+    public class CustomAdapter extends BaseAdapter{
+
+        private int imagesPhoto[];
+        private Context context;
+        private LayoutInflater layoutInflater;
+
+        public CustomAdapter(int[] imagesPhoto, Context context) {
+            this.imagesPhoto = imagesPhoto;
+            this.context = context;
+            this.layoutInflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        }
+
+        @Override
+        public int getCount() {
+            return imagesPhoto.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            if(convertView==null)
+            {
+                convertView = layoutInflater.inflate(R.layout.row_items,parent,false);
+            }
+
+            ImageView imageView = convertView.findViewById(R.id.imageView);
+
+            imageView.setImageResource(imagesPhoto[position]);
+
+            return convertView;
+        }
+    }
+
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -59,6 +116,13 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
-    }
+
+        View result = inflater.inflate(R.layout.fragment_profile, container, false);
+        gridView=result.findViewById(R.id.gridView);
+        gridView.setExpanded(true);
+        CustomAdapter customAdapter = new CustomAdapter(images,getActivity());
+
+        gridView.setAdapter(customAdapter);
+        return result;
+    } 
 }
