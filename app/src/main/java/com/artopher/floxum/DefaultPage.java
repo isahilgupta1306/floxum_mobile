@@ -34,7 +34,7 @@ public class DefaultPage extends AppCompatActivity {
                 case R.id.home:
                     selectedFragment=new HomeFragment();
                     break;
-                case R.id.explore:
+                case R.id.Group:
                     selectedFragment=new ExploreFragment();
                     break;
                 case R.id.event:
@@ -43,6 +43,9 @@ public class DefaultPage extends AppCompatActivity {
                 case R.id.profile:
                     selectedFragment=new ProfileFragment();
                     break;
+                case R.id.Post:
+                    selectedFragment=new PostFragment();
+
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.FragmentContainer,selectedFragment).commit();
             return true;
