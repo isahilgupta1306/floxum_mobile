@@ -13,11 +13,17 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import adapter.ModelClassRVpost;
+import adapter.PostAdapter;
+
 
 public class HomeFragment extends Fragment {
 
-    RecyclerView recyclerView;
+    RecyclerView recyclerView , user_postRV ;
     List<ModelClass> itemList;
+    List<ModelClassRVpost> postList;
+
+
 
 
 
@@ -35,13 +41,43 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycler_id);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
-
         //initData();
         recyclerView.setAdapter(new topEventsAdapter(initData()));
 
-        return view;
+        // Inflate the layout for this fragment
+        //View view2 =  inflater.inflate(R.layout.fragment_home, container, false);
+        user_postRV = view.findViewById(R.id.user_post_templateRV);
+        user_postRV.setHasFixedSize(true);
+        user_postRV.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+
+        //initData2();
+        user_postRV.setAdapter(new PostAdapter(initData2()));
+
+
+
+
+
+        return view ;
 
     }
+
+    private List<ModelClassRVpost> initData2() {
+        postList= new ArrayList<>();
+        postList.add(new ModelClassRVpost(R.drawable.dummy_post, R.drawable.fuckerberg ,
+                "9 Nov , Mon" ,"@username" , "Name" , "trying to be cool"));
+        postList.add(new ModelClassRVpost(R.drawable.dummy_post, R.drawable.fuckerberg ,
+                "9 Nov , Mon" ,"@username" , "Name" , "trying to be cool"));
+        postList.add(new ModelClassRVpost(R.drawable.dummy_post, R.drawable.fuckerberg ,
+                "9 Nov , Mon" ,"@username" , "Name" , "trying to be cool"));
+        postList.add(new ModelClassRVpost(R.drawable.dummy_post, R.drawable.fuckerberg ,
+                "9 Nov , Mon" ,"@username" , "Name" , "trying to be cool"));
+        postList.add(new ModelClassRVpost(R.drawable.dummy_post, R.drawable.fuckerberg ,
+                "9 Nov , Mon" ,"@username" , "Name" , "trying to be cool"));
+
+        return postList;
+
+    }
+
 
     private List<ModelClass> initData() {
         itemList= new ArrayList<>();

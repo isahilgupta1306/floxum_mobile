@@ -87,5 +87,15 @@
         app:layout_constraintVertical_bias="0"
         android:layout_marginTop="15dp"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/user_post_templateRV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,9 +29,10 @@
         android:clickable="false"
         app:fabAlignmentMode="center"
         android:layout_gravity="bottom"
-        app:fabCradleMargin="20dp"
-        app:fabCradleVerticalOffset="10dp"
-        app:fabCradleRoundedCornerRadius="20dp"/>
+        app:fabCradleMargin="10dp"
+        app:fabCradleVerticalOffset="1dp"
+        app:fabCradleRoundedCornerRadius="15dp"
+        />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -59,8 +60,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:contentDescription="TODO"
-        android:src="@drawable/ic_post"
+        android:src="@drawable/add"
+        app:fabSize="normal"
+        app:maxImageSize="35dp"
         app:layout_anchor="@id/bottom_bar"
-        android:backgroundTint="@color/yellow"/>
+        android:backgroundTint="@color/colorPrimaryDark"
+        app:tint="@color/white"
+        app:borderWidth="0dp"
+        android:elevation="8dp"
+        android:layout_margin="30dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

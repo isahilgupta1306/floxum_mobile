@@ -6,6 +6,7 @@
 
     <color name="newWhite">#FFF</color>
     <color name="darkerWhite">#FAFAFA</color>
+    <color name="darkerGray">#676767</color>
     <color name="themeColor">#49bcad</color>
     <color name="themeColorDark">#159A88</color>
     <color name="red">#F53D52</color>
