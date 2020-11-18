@@ -43,8 +43,6 @@ public class DefaultPage extends AppCompatActivity {
                 case R.id.profile:
                     selectedFragment=new ProfileFragment();
                     break;
-                case R.id.Post:
-                    selectedFragment=new PostFragment();
 
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.FragmentContainer,selectedFragment).commit();

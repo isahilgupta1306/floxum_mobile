@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/home"
         android:enabled="true"
@@ -15,9 +16,12 @@
         android:title="@string/nav_event"
         android:visible="true" />
     <item
-        android:id="@+id/Post"
-        android:icon="@drawable/ic_post"
-        android:title="@string/nav_post" />
+        android:id="@+id/Fabspace"
+        android:checkable="false"
+        android:checked="false"
+        android:enabled="false"
+        android:title="Item"
+        app:showAsAction="always" />
     <item
         android:id="@+id/Group"
         android:enabled="true"
