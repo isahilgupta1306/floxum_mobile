@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:elevation="8dp"
+    android:visibility="visible"
     tools:context=".DefaultPage">
 
 
@@ -23,51 +24,83 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottom_bar"
+        android:layout_gravity="bottom"
         android:clickable="false"
         app:fabAlignmentMode="center"
-        android:layout_gravity="bottom"
         app:fabCradleMargin="10dp"
-        app:fabCradleVerticalOffset="1dp"
         app:fabCradleRoundedCornerRadius="15dp"
-        />
+        app:fabCradleVerticalOffset="1dp" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom">
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@drawable/nav_rounded"
-        android:elevation="8dp"
-        app:itemIconTint="@color/nav_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/nav_menu" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/nav_rounded"
+            android:elevation="8dp"
+            app:itemIconTint="@color/nav_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/nav_menu" />
 
     </FrameLayout>
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:contentDescription="TODO"
-        android:src="@drawable/add"
-        app:fabSize="normal"
-        app:maxImageSize="35dp"
-        app:layout_anchor="@id/bottom_bar"
+        android:layout_margin="30dp"
         android:backgroundTint="@color/colorPrimaryDark"
-        app:tint="@color/white"
-        app:borderWidth="0dp"
+        android:clickable="true"
+        android:contentDescription="TODO"
         android:elevation="8dp"
-        android:layout_margin="30dp"/>
+        android:focusable="true"
+        android:src="@drawable/add"
+        app:borderWidth="0dp"
+        app:fabCradleVerticalOffset="1dp"
+        app:fabSize="normal"
+        app:layout_anchor="@id/bottom_bar"
+        app:maxImageSize="35dp"
+        app:tint="@color/white" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+        android:backgroundTint="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
+        app:layout_anchor="@id/fab"
+        app:layout_anchorGravity="top"
+        app:srcCompat="@drawable/ic_baseline_image_24"
+        app:tint="@color/colorPrimaryDark" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
+        app:layout_anchor="@id/image"
+        app:layout_anchorGravity="top"
+        android:src="@drawable/ic_baseline_video_library_24">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
