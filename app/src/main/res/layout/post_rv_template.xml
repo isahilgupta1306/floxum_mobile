@@ -107,6 +107,16 @@
             android:scaleType="centerCrop"
             />
 
+        <ImageButton
+            android:id="@+id/popup_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/user_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/user_id"
+            app:srcCompat="@drawable/ic_baseline_more_vert_24" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

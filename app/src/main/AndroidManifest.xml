@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ForgotPasswordPage"></activity>
-        <activity android:name=".DefaultPage" />
+        <activity android:name=".DefaultPage"
+            android:windowSoftInputMode="adjustNothing"
+            />
         <activity
             android:name=".new_signup_page"
             android:windowSoftInputMode="stateHidden|adjustResize" />

@@ -32,12 +32,13 @@
         app:fabAlignmentMode="center"
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="15dp"
-        app:fabCradleVerticalOffset="1dp" />
+        app:fabCradleVerticalOffset="1dp"/>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom">
+
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_nav"
@@ -50,7 +51,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/nav_menu" />
+            app:menu="@menu/nav_menu"
+            app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"/>
 
     </FrameLayout>
 

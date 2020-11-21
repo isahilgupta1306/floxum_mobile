@@ -5,6 +5,8 @@
     <string name="nav_event">Event</string>
     <string name="nav_profile">Profile</string>
     <string name="nav_post">Post</string>
+    <string name="popup_share">Share</string>
+    <string name="popup_report">Report</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

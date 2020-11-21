@@ -1,12 +1,20 @@
 package com.artopher.floxum;
 
+import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textview.MaterialTextView;
@@ -30,7 +38,7 @@ public class topEventsAdapter extends RecyclerView.Adapter<topEventsAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull topEventsAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final topEventsAdapter.ViewHolder holder, int position) {
         holder.eventImage.setImageResource(itemList1.get(position).getImage());
         holder.title.setText(itemList1.get(position).getTitle());
     }
@@ -40,17 +48,21 @@ public class topEventsAdapter extends RecyclerView.Adapter<topEventsAdapter.View
         return itemList1.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder  {
 
         ImageView eventImage;
         MaterialTextView title;
+        ImageButton popup_menu;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             eventImage = itemView.findViewById(R.id.eventImage);
-           title = itemView.findViewById(R.id.event_title);
-
+            title = itemView.findViewById(R.id.event_title);
 
         }
+
+
     }
+
+
 }
