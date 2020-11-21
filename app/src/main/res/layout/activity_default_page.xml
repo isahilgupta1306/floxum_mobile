@@ -88,19 +88,40 @@
         app:layout_anchor="@id/fab"
         app:layout_anchorGravity="top"
         app:srcCompat="@drawable/ic_baseline_image_24"
-        app:tint="@color/colorPrimaryDark" />
+        app:tint="@color/colorPrimaryDark"
+        app:borderWidth="0dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/video"
+        android:id="@+id/create_groups"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|top"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
+        app:layout_anchor="@id/fab"
+        app:layout_anchorGravity="left"
+        app:srcCompat="@drawable/ic_groups"
+        app:tint="@color/colorPrimaryDark"
+        android:backgroundTint="@color/white"
+        app:borderWidth="0dp">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/create_event"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right|top"
         android:clickable="true"
         android:focusable="true"
         android:visibility="invisible"
-        app:layout_anchor="@id/image"
-        app:layout_anchorGravity="top"
-        android:src="@drawable/ic_baseline_video_library_24">
+        app:layout_anchor="@id/fab"
+        app:layout_anchorGravity="right"
+        app:srcCompat="@drawable/ic_event_available_24"
+        app:tint="@color/colorPrimaryDark"
+        android:backgroundTint="@color/white"
+        app:borderWidth="0dp">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 

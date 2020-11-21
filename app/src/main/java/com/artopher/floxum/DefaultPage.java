@@ -21,8 +21,8 @@ public class DefaultPage extends AppCompatActivity {
      Animation fabClose;
 
      FloatingActionButton fab;
-     FloatingActionButton image;
-     FloatingActionButton video;
+     FloatingActionButton groups;
+     FloatingActionButton video , events;
      Boolean Clicked = false;
 
 
@@ -42,7 +42,8 @@ public class DefaultPage extends AppCompatActivity {
 
         final FloatingActionButton fab = findViewById(R.id.fab);
         final FloatingActionButton image = findViewById(R.id.image);
-        final FloatingActionButton video = findViewById(R.id.video);
+        final FloatingActionButton groups = findViewById(R.id.create_groups);
+        final FloatingActionButton events = findViewById(R.id.create_event);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.FragmentContainer,new HomeFragment()).commit();
 
@@ -53,23 +54,30 @@ public class DefaultPage extends AppCompatActivity {
                 if(!Clicked)
                 {
                     image.setVisibility(View.VISIBLE);
-                    video.setVisibility(View.VISIBLE);
+                    groups.setVisibility(View.VISIBLE);
+                    events.setVisibility(View.VISIBLE);
+
                     image.startAnimation(fabOpen);
-                    video.startAnimation(fabOpen);
+                    groups.startAnimation(fabOpen);
+                    events.startAnimation(fabOpen);
                     fab.startAnimation(rotateAnticlockwise);
                     image.setClickable(true);
-                    video.setClickable(true);
+                    groups.setClickable(true);
+                    events.setClickable(true);
                     Clicked=true;
                 }
                 else
                 {
                     image.setVisibility(View.INVISIBLE);
-                    video.setVisibility(View.VISIBLE);
+                    groups.setVisibility(View.VISIBLE);
+                    events.setVisibility(View.VISIBLE);
                     image.startAnimation(fabClose);
-                    video.startAnimation(fabClose);
+                    groups.startAnimation(fabClose);
+                    events.startAnimation(fabClose);
                     fab.startAnimation(rotateClockwise);
                     image.setClickable(false);
-                    video.setClickable(true);
+                    groups.setClickable(true);
+                    events.setClickable(true);
                     Clicked=false;
                 }
             }

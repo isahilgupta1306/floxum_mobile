@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
@@ -7,95 +8,119 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <com.google.android.material.appbar.CollapsingToolbarLayout
-        android:id="@+id/collapsingToolbarLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        >
 
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="40dp"
-            android:background="@drawable/search_bar_bg"
-            android:drawableStart="@drawable/ic_search_icon"
-            android:drawablePadding="15dp"
-            android:hint="Search"
-            android:paddingLeft="10dp"
-            android:fontFamily="@font/roboto_light"
-            android:layout_gravity="center"
-            app:layout_constraintBottom_toBottomOf="@+id/collapsingToolbarLayout"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/tempID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/collapsingToolbarLayout" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/white">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="left"
-            android:src="@drawable/fuckerberg"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="15dp"
-            android:elevation="3dp"/>
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="right"
-            android:src="@drawable/message"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginRight="15dp"
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/collapsingToolbarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <EditText
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/search_bar_bg"
+                    android:drawableStart="@drawable/ic_search_icon"
+                    android:drawablePadding="15dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:hint="Search"
+                    android:paddingLeft="10dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/collapsingToolbarLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/collapsingToolbarLayout" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:elevation="3dp"
+                    android:src="@drawable/fuckerberg" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/message" />
+
+            </com.google.android.material.appbar.MaterialToolbar>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Top Events"
+            android:textColor="#676767"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.054"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tempID" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_id"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialTextView" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            app:layout_constraintWidth_percent=".9"
+            android:layout_height="0.5dp"
+            android:background="#B2B2B4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_id"
+            app:layout_constraintVertical_bias="0"
+            android:layout_marginTop="15dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/user_post_templateRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
             />
 
-    </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/materialTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Top Events"
-        android:textColor="#676767"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/collapsingToolbarLayout" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_id"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialTextView" />
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent=".9"
-        android:layout_height="0.5dp"
-        android:background="#B2B2B4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_id"
-        app:layout_constraintVertical_bias="0"
-        android:layout_marginTop="15dp"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/user_post_templateRV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-
-        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
