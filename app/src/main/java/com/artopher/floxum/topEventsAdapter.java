@@ -52,7 +52,6 @@ public class topEventsAdapter extends RecyclerView.Adapter<topEventsAdapter.View
 
         ImageView eventImage;
         MaterialTextView title;
-        ImageButton popup_menu;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

@@ -1,8 +1,12 @@
 package adapter;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -49,11 +53,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         return postList1.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,PopupMenu.OnMenuItemClickListener  {
 
         AppCompatImageView postImage ;
         CircleImageView profilePicture;
-        MaterialTextView userFullname , userId , postDate , postCaption ;
+        MaterialTextView userFullname , userId , postDate , postCaption;
+        ImageButton post_menu;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             postImage = itemView.findViewById(R.id.postImage);
@@ -63,7 +68,38 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             postCaption = itemView.findViewById(R.id.post_caption);
             profilePicture = itemView.findViewById(R.id.profilePicture);
 
+            ImageButton post_menu=itemView.findViewById(R.id.post_menu);
+            post_menu.setOnClickListener(this);
 
+
+
+        }
+
+
+        @Override
+        public void onClick(View v) {
+            showPopupMenu(v);
+        }
+        private void showPopupMenu(View v)
+        {
+            PopupMenu popupMenu=new PopupMenu(v.getContext(),v);
+            popupMenu.inflate(R.menu.popup_menu);
+            popupMenu.setOnMenuItemClickListener(this);
+            popupMenu.show();
+        }
+
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+            switch(item.getItemId()){
+                case R.id.share:
+                    Toast.makeText(itemView.getContext(),"share clicked",Toast.LENGTH_LONG);
+                    return true;
+                case R.id.report:
+                    Toast.makeText(itemView.getContext(),"Reported",Toast.LENGTH_LONG);
+                    return true;
+                default:
+                    return false;
+            }
 
         }
     }
