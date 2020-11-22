@@ -2,6 +2,7 @@ package com.artopher.floxum;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
@@ -34,6 +35,11 @@ public class DefaultPage extends AppCompatActivity {
 
         BottomNavigationView nav = findViewById(R.id.bottom_nav);
         nav.setOnNavigationItemSelectedListener(navListener);
+
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) nav.getLayoutParams();
+        layoutParams.setBehavior(new BottomNavigationViewBehaviour());
+        nav.setLayoutParams(layoutParams);
+
 
          rotateClockwise = AnimationUtils.loadAnimation(this,R.anim.rotate_clockwise);
          rotateAnticlockwise = AnimationUtils.loadAnimation(this,R.anim.rotate_anticlockwise);
