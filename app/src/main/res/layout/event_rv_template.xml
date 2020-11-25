@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="206dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent=".9"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        style="@style/Widget.MaterialComponents.CardView"
+
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/event_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/dace_event_sample"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHeight_percent=".4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <ImageView
+                android:id="@+id/locationPin"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_location"
+                app:layout_constraintBottom_toTopOf="@+id/event_title1"
+                app:layout_constraintEnd_toStartOf="@+id/event_location"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/event_title1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/event_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/roboto_light"
+                android:text="Loni, Pune"
+                android:textColor="@color/darkerGray"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@+id/locationPin"
+                app:layout_constraintEnd_toEndOf="@+id/event_date"
+                app:layout_constraintTop_toTopOf="@+id/locationPin"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/event_title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Queens Dance "
+                android:textAlignment="textStart"
+                android:textColor="#08090A"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.138"
+                app:layout_constraintStart_toEndOf="@+id/event_image"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/calendar_icon"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_calendar"
+                app:layout_constraintBottom_toBottomOf="@+id/event_date"
+                app:layout_constraintEnd_toStartOf="@+id/event_date"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/event_title1"
+                app:layout_constraintTop_toBottomOf="@+id/event_title1"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/event_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
+                android:text="13/06/2020"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="@+id/event_title1"
+                app:layout_constraintHorizontal_bias="0.405"
+                app:layout_constraintStart_toStartOf="@+id/event_title1"
+                app:layout_constraintTop_toBottomOf="@+id/event_title1" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

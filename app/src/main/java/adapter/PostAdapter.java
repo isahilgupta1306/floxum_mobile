@@ -68,7 +68,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             postCaption = itemView.findViewById(R.id.post_caption);
             profilePicture = itemView.findViewById(R.id.profilePicture);
 
-            ImageButton post_menu=itemView.findViewById(R.id.post_menu);
+             post_menu=itemView.findViewById(R.id.post_menu);
             post_menu.setOnClickListener(this);
 
 
