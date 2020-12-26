@@ -42,6 +42,7 @@ public class new_signup_page extends AppCompatActivity {
         repeatPasswordEditText =(EditText)findViewById(R.id.confirm_password);
         //ImageView
         signupGirl =(ImageView)findViewById(R.id.signupGirl);
+        ///ss
 
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
