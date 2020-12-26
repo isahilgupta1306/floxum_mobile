@@ -66,6 +66,7 @@ public class new_signup_page extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), newLoginPage.class);
                 startActivity(i);
+                //back to login page
             }
         });
 
