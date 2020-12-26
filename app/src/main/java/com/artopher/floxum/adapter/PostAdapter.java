@@ -1,4 +1,4 @@
-package adapter;
+package com.artopher.floxum.adapter;
 
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -13,7 +13,6 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.artopher.floxum.R;
-import com.artopher.floxum.topEventsAdapter;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package adapter;
+package com.artopher.floxum.adapter;
 
 public class ModelClassRVpost {
 

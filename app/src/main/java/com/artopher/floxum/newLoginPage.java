@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -52,9 +53,16 @@ public class newLoginPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                login();
-                Intent intent = new Intent(getApplicationContext(),DefaultPage.class);
-                startActivity(intent);
+                if(TextUtils.isEmpty(email_editText.getText().toString()) || TextUtils.isEmpty(password_editText.getText().toString())){
+                    Toast.makeText(newLoginPage.this,"Pehle pw , email to daal bsdk" , Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    login();
+                    Intent intent = new Intent(getApplicationContext(),DefaultPage.class);
+                    startActivity(intent);
+                }
+
+
             }
         });
 

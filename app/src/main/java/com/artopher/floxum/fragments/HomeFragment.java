@@ -17,8 +17,8 @@ import com.artopher.floxum.topEventsAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import adapter.ModelClassRVpost;
-import adapter.PostAdapter;
+import com.artopher.floxum.adapter.ModelClassRVpost;
+import com.artopher.floxum.adapter.PostAdapter;
 
 
 public class HomeFragment extends Fragment {

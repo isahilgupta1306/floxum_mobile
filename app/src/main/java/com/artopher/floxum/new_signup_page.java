@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.artopher.floxum.ApiClasses.ApiClients.ApiClientSignup;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.IOException;
 
@@ -23,9 +24,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class new_signup_page extends AppCompatActivity {
-    EditText fullnameEditText , usernameEditText , emailEditText , passwordEditText , repeatPasswordEditText ;
+    TextInputEditText fullnameEditText , usernameEditText , emailEditText , passwordEditText , repeatPasswordEditText ;
     MaterialButton loginButton , signupButton;
-    ImageView signupGirl;
+    ImageView backButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +36,13 @@ public class new_signup_page extends AppCompatActivity {
         loginButton=(MaterialButton)findViewById(R.id.goLogin);
         signupButton=(MaterialButton)findViewById(R.id.sign_upButton);
         //EditTexts
-        fullnameEditText =(EditText)findViewById(R.id.full_name);
-        usernameEditText =(EditText)findViewById(R.id.username);
-        emailEditText =(EditText)findViewById(R.id.email);
-        passwordEditText =(EditText)findViewById(R.id.password);
-        repeatPasswordEditText =(EditText)findViewById(R.id.confirm_password);
+        fullnameEditText =(TextInputEditText)findViewById(R.id.full_name);
+        usernameEditText =(TextInputEditText)findViewById(R.id.username);
+        emailEditText =(TextInputEditText)findViewById(R.id.email);
+        passwordEditText =(TextInputEditText)findViewById(R.id.password);
+        repeatPasswordEditText =(TextInputEditText)findViewById(R.id.confirm_password);
         //ImageView
-        signupGirl =(ImageView)findViewById(R.id.signupGirl);
+        backButton =(ImageView)findViewById(R.id.backButton);
         ///ss
 
         signupButton.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +60,15 @@ public class new_signup_page extends AppCompatActivity {
 
             }
         });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), newLoginPage.class);
+                startActivity(i);
+            }
+        });
+
 
 
 

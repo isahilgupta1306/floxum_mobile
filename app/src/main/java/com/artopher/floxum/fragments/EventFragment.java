@@ -15,8 +15,8 @@ import com.artopher.floxum.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import adapter.EventAdapter;
-import adapter.ModelClassRVevent;
+import com.artopher.floxum.adapter.EventAdapter;
+import com.artopher.floxum.adapter.ModelClassRVevent;
 
 
 public class EventFragment extends Fragment {
