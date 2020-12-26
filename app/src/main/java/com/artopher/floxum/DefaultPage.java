@@ -11,6 +11,10 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
+import com.artopher.floxum.fragments.EventFragment;
+import com.artopher.floxum.fragments.ExploreFragment;
+import com.artopher.floxum.fragments.HomeFragment;
+import com.artopher.floxum.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

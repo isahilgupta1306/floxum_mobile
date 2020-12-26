@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.artopher.floxum">
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,7 +19,6 @@
             android:name=".new_signup_page"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity android:name=".newLoginPage" />
-        <activity android:name=".LoginActivity" />
         <activity android:name=".IntroductoryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

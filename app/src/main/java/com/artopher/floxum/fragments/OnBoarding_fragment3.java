@@ -1,4 +1,4 @@
-package com.artopher.floxum;
+package com.artopher.floxum.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.artopher.floxum.R;
+import com.artopher.floxum.newLoginPage;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
@@ -26,7 +28,7 @@ public class OnBoarding_fragment3 extends Fragment {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(),newLoginPage.class);
+                    Intent intent = new Intent(getActivity(), newLoginPage.class);
                     startActivity(intent);
                 }
             });

@@ -13,64 +13,43 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/signupGirl"
             android:layout_width="269dp"
             android:layout_height="238dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.032"
             app:srcCompat="@drawable/login_girl" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName8"
+            android:id="@+id/full_name"
             android:layout_width="0dp"
             android:layout_height="47dp"
-            android:layout_below="@+id/imageView5"
-            android:layout_alignStart="@+id/imageView5"
+            android:layout_below="@+id/signupGirl"
+            android:layout_alignStart="@+id/signupGirl"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="36dp"
             android:layout_marginTop="56dp"
             android:background="@drawable/edit_text_bg"
             android:ems="10"
-            android:hint="First Name"
-            android:textAlignment="center"
+            android:hint="Full Name"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonlastName8"
-            app:layout_constraintHorizontal_bias="0.652"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5"
-            app:layout_constraintWidth_percent=".37" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonlastName8"
-            android:layout_width="0dp"
-            android:layout_height="47dp"
-            android:layout_below="@+id/imageView5"
-            android:layout_alignStart="@+id/imageView5"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="56dp"
-            android:layout_marginEnd="48dp"
-            android:background="@drawable/edit_text_bg"
-            android:ems="10"
-            android:textAlignment="center"
-            android:hint="   Last Name"
-            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5"
-            app:layout_constraintWidth_percent=".37" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signupGirl"
+            app:layout_constraintWidth_percent=".75" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName10"
+            android:id="@+id/username"
             android:layout_width="0dp"
             app:layout_constraintWidth_percent=".75"
             android:layout_height="47dp"
-            android:layout_below="@+id/editTextTextPersonName8"
-            android:layout_alignStart="@+id/editTextTextPersonName8"
+            android:layout_below="@+id/full_name"
+            android:layout_alignStart="@+id/full_name"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="16dp"
             android:background="@drawable/edit_text_bg"
@@ -79,15 +58,15 @@
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+            app:layout_constraintTop_toBottomOf="@+id/full_name" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName11"
+            android:id="@+id/email"
             android:layout_width="0dp"
             app:layout_constraintWidth_percent=".75"
             android:layout_height="47dp"
-            android:layout_below="@+id/editTextTextPersonName10"
-            android:layout_alignStart="@+id/editTextTextPersonName10"
+            android:layout_below="@+id/username"
+            android:layout_alignStart="@+id/username"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="16dp"
             android:background="@drawable/edit_text_bg"
@@ -96,15 +75,15 @@
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName10" />
+            app:layout_constraintTop_toBottomOf="@+id/username" />
 
         <EditText
-            android:id="@+id/editTextTextPassword5"
+            android:id="@+id/password"
             android:layout_width="0dp"
             app:layout_constraintWidth_percent=".75"
             android:layout_height="47dp"
-            android:layout_below="@+id/editTextTextPersonName11"
-            android:layout_alignStart="@+id/editTextTextPersonName11"
+            android:layout_below="@+id/email"
+            android:layout_alignStart="@+id/email"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="16dp"
             android:background="@drawable/edit_text_bg"
@@ -113,41 +92,40 @@
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName11" />
+            app:layout_constraintTop_toBottomOf="@+id/email" />
 
         <EditText
-            android:id="@+id/editTextTextPassword6"
+            android:id="@+id/confirm_password"
             android:layout_width="0dp"
             app:layout_constraintWidth_percent=".75"
             android:layout_height="47dp"
-            android:layout_below="@+id/editTextTextPassword5"
-            android:layout_alignStart="@+id/editTextTextPassword5"
+            android:layout_below="@+id/password"
+            android:layout_alignStart="@+id/password"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="16dp"
             android:background="@drawable/edit_text_bg"
             android:ems="10"
             android:hint="   Confirm password"
             android:inputType="textPassword"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword5"
+            app:layout_constraintTop_toBottomOf="@+id/password"
             app:layout_constraintVertical_bias="0.016" />
 
-        <Button
-            android:id="@+id/button2"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sign_upButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:background="@drawable/button_bg"
             android:text="SignUp"
             app:layout_constraintEnd_toEndOf="parent"
-
+            app:rippleColor="@color/themeColor"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword6"
+            app:layout_constraintTop_toBottomOf="@+id/confirm_password"
             app:layout_constraintWidth_percent=".75" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/goLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -157,19 +135,12 @@
             android:text=" Already a user ? Login here"
             android:textColor="#000"
             android:textSize="13dp"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2"
+            app:layout_constraintTop_toBottomOf="@+id/sign_upButton"
             app:layout_constraintWidth_percent=".75" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:src="@drawable/vie_bg"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/goLogin" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

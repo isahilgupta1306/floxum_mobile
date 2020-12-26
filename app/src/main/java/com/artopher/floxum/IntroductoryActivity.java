@@ -13,6 +13,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.artopher.floxum.fragments.OnBoarding_fragment1;
+import com.artopher.floxum.fragments.OnBoarding_fragment2;
+import com.artopher.floxum.fragments.OnBoarding_fragment3;
 
 public class IntroductoryActivity extends AppCompatActivity {
     ImageView logo,banner;

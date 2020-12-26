@@ -1,4 +1,4 @@
-package com.artopher.floxum;
+package com.artopher.floxum.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.artopher.floxum.R;
 
 public class OnBoarding_fragment2 extends Fragment {
 

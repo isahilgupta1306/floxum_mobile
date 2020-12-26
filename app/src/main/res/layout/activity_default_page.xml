@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/FC"
@@ -33,7 +34,9 @@
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="15dp"
         app:fabCradleVerticalOffset="1dp"
-        app:hideOnScroll="true"/>
+        app:hideOnScroll="true">
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
@@ -49,13 +52,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/nav_menu" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
 
-
-    </FrameLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

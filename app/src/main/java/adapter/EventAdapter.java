@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.artopher.floxum.R;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.List;
@@ -41,6 +42,14 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         holder.location_icon.setImageResource(eventList1.get(position).getLocation_pin());
         holder.calendar_icon.setImageResource(eventList1.get(position).getCalendar_icon());
 
+        //Cardview onClick funtion :
+        holder.event_cardview_rv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
+
     }
 
     @Override
@@ -52,6 +61,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
 
         ImageView event_image , location_icon , calendar_icon;
         MaterialTextView event_title , event_date , event_location;
+        MaterialCardView event_cardview_rv ;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -61,6 +71,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
             event_date = itemView.findViewById(R.id.event_date);
             event_location = itemView.findViewById(R.id.event_location);
             event_title = itemView.findViewById(R.id.event_title1);
+            event_cardview_rv = itemView.findViewById(R.id.event_rv_card);
         }
     }
 }
