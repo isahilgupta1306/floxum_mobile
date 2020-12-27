@@ -25,7 +25,8 @@ import retrofit2.Response;
 
 public class new_signup_page extends AppCompatActivity {
     TextInputEditText fullnameEditText , usernameEditText , emailEditText , passwordEditText , repeatPasswordEditText ;
-    MaterialButton loginButton , signupButton;
+    MaterialButton loginButton ;
+    Button  signupButton;
     ImageView backButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class new_signup_page extends AppCompatActivity {
         //Hooks
         //Buttons
         loginButton=(MaterialButton)findViewById(R.id.goLogin);
-        signupButton=(MaterialButton)findViewById(R.id.sign_upButton);
+        signupButton=(Button)findViewById(R.id.sign_upButton);
         //EditTexts
         fullnameEditText =(TextInputEditText)findViewById(R.id.full_name);
         usernameEditText =(TextInputEditText)findViewById(R.id.username);
@@ -126,7 +127,7 @@ public class new_signup_page extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(new_signup_page.this, "Barbaad" , Toast.LENGTH_SHORT).show();
+                Toast.makeText(new_signup_page.this, "Barbaad ho tum" , Toast.LENGTH_SHORT).show();
             }
 
 
