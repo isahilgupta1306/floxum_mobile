@@ -58,8 +58,7 @@ public class newLoginPage extends AppCompatActivity {
                 }
                 else {
                     login();
-                    Intent intent = new Intent(getApplicationContext(),DefaultPage.class);
-                    startActivity(intent);
+
                 }
 
 
@@ -100,7 +99,17 @@ public class newLoginPage extends AppCompatActivity {
                 try {
                     if (response.isSuccessful()){
                       String token = response.body().string();
-                        Toast.makeText(newLoginPage.this, "Login Succesfull" , Toast.LENGTH_LONG).show();
+                      if(token.equalsIgnoreCase("\"Invalid Credentials!\""))
+                        {
+                            Toast.makeText(newLoginPage.this, token , Toast.LENGTH_LONG).show();
+                        }
+                      else
+                      {
+                          Toast.makeText(newLoginPage.this, "Login Succesfull" , Toast.LENGTH_LONG).show();
+                          Intent intent = new Intent(getApplicationContext(),DefaultPage.class);
+                          startActivity(intent);
+                      }
+
                     }else {
                         Toast.makeText(newLoginPage.this, "UnSuccesfull" , Toast.LENGTH_SHORT).show();
                     }
