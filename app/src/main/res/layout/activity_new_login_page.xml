@@ -41,7 +41,12 @@
         app:layout_constraintVertical_bias="0.507"
         app:layout_constraintWidth_percent=".95"
         app:passwordToggleEnabled="false"
-        android:background="#FAFAFA">
+        android:background="#FAFAFA"
+        android:focusable="true"
+        app:errorEnabled="true"
+        app:errorTextColor="@color/colorPrimary"
+        app:errorIconTint="@color/colorPrimary"
+        app:boxStrokeErrorColor="@color/colorPrimary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
@@ -69,6 +74,10 @@
         app:layout_constraintWidth_percent=".95"
         app:passwordToggleEnabled="true"
         app:startIconDrawable="@drawable/ic_password"
+        app:errorEnabled="true"
+        android:focusable="true"
+        app:errorIconTint="@color/colorPrimary"
+        app:boxStrokeErrorColor="@color/colorPrimary"
         android:background="#FAFAFA">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -112,11 +121,13 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:background="@drawable/button_bg"
-        android:foreground="?android:selectableItemBackground"
-        android:elevation="20dp"
+        android:foreground="?android:selectableItemBackgroundBorderless"
+        android:clickable="true"
+        app:elevation="40dp"
         android:fontFamily="@font/roboto_medium"
         android:includeFontPadding="false"
         android:text="Login"
+        app:rippleColor="@color/colorPrimaryDark"
         android:textColor="@color/white"
 
         app:layout_constraintBottom_toBottomOf="parent"

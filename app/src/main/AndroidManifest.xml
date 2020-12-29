@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.artopher.floxum">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -11,10 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ForgotPasswordPage"></activity>
-        <activity android:name=".DefaultPage"
-            android:windowSoftInputMode="adjustNothing"
-            />
+        <activity android:name=".EventForm"></activity>
+        <activity android:name=".ForgotPasswordPage" />
+        <activity
+            android:name=".DefaultPage"
+            android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".new_signup_page"
             android:windowSoftInputMode="stateHidden|adjustResize" />

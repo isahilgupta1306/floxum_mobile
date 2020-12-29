@@ -51,6 +51,7 @@
         app:fabSize="auto"
         />-->
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/event_rv"
             android:layout_width="match_parent"

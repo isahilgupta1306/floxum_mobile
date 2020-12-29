@@ -53,8 +53,13 @@ public class newLoginPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(TextUtils.isEmpty(email_editText.getText().toString()) || TextUtils.isEmpty(password_editText.getText().toString())){
+                if(TextUtils.isEmpty(email_editText.getText().toString()) ){
+                    email_EditText.setError("Enter your E-mail address");
+                    email_EditText.setFocusable(true);
                     Toast.makeText(newLoginPage.this,"Pehle pw , email to daal bsdk" , Toast.LENGTH_SHORT).show();
+                }else if (TextUtils.isEmpty(password_editText.getText().toString())){
+                    password_EditText.setError("Enter Password");
+                    password_EditText.setFocusable(true);
                 }
                 else {
                     login();
