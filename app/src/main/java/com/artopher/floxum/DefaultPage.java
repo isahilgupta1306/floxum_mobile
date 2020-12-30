@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -56,6 +57,15 @@ public class DefaultPage extends AppCompatActivity {
         final FloatingActionButton events = findViewById(R.id.create_event);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.FragmentContainer,new HomeFragment()).commit();
+
+
+        events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToEventForm = new Intent(getApplicationContext() , EventForm.class);
+                startActivity(goToEventForm);
+            }
+        });
 
         fab.setOnClickListener(new View.OnClickListener(){
 

@@ -46,7 +46,6 @@
         android:layout_marginTop="220dp"
         android:background="#FAFAFA"
         android:hint="Full Name"
-
         app:boxCornerRadiusBottomEnd="30dp"
         app:boxCornerRadiusBottomStart="30dp"
         app:boxCornerRadiusTopEnd="30dp"
