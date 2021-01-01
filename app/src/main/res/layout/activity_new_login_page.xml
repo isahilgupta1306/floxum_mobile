@@ -15,7 +15,7 @@
         android:layout_width="244dp"
         android:layout_height="184dp"
         android:gravity="center_vertical"
-        android:src="@drawable/newlogin"
+        android:src="@drawable/ic_newlogin"
         android:transitionName="logo_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -61,31 +61,30 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="#FAFAFA"
+        android:focusable="true"
         android:hint="Password"
         app:boxCornerRadiusBottomEnd="30dp"
         app:boxCornerRadiusBottomStart="30dp"
         app:boxCornerRadiusTopEnd="30dp"
         app:boxCornerRadiusTopStart="30dp"
+        app:boxStrokeErrorColor="@color/colorPrimary"
+        app:errorEnabled="true"
+        app:errorIconTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/outlinedTextField"
-        app:layout_constraintVertical_bias="0.110000014"
+        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintWidth_percent=".95"
         app:passwordToggleEnabled="true"
-        app:startIconDrawable="@drawable/ic_password"
-        app:errorEnabled="true"
-        android:focusable="true"
-        app:errorIconTint="@color/colorPrimary"
-        app:boxStrokeErrorColor="@color/colorPrimary"
-        android:background="#FAFAFA">
+        app:startIconDrawable="@drawable/ic_password">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
-            android:inputType="textPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -95,13 +94,14 @@
         android:text="Welcome"
         android:textAlignment="center"
         android:textColor="#252525"
-        android:textSize="30dp"
+        android:textSize="35dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/login_text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_girl"
-        app:layout_constraintVertical_bias="0.645" />
+        app:layout_constraintVertical_bias="0.522" />
 
     <TextView
         android:id="@+id/login_text"
@@ -122,39 +122,42 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:background="@drawable/button_bg"
-        android:foreground="?android:selectableItemBackgroundBorderless"
         android:clickable="true"
-        app:elevation="40dp"
         android:fontFamily="@font/roboto_medium"
+        android:foreground="?android:selectableItemBackgroundBorderless"
         android:includeFontPadding="false"
         android:text="Login"
-        app:rippleColor="@color/colorPrimaryDark"
         android:textColor="@color/white"
-
+        app:elevation="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outlinedTextField2"
-        app:layout_constraintVertical_bias="0.38"
-        app:layout_constraintWidth_percent=".9" />
+        app:layout_constraintTop_toBottomOf="@+id/forgot"
+        app:layout_constraintVertical_bias="0.128"
+        app:layout_constraintWidth_percent=".9"
+        app:rippleColor="@color/colorPrimaryDark" />
 
     <TextView
         android:id="@+id/forgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_marginTop="24dp"
+        android:background="?android:selectableItemBackground"
         android:clickable="true"
-        android:text="Forgot Password?"
-        android:textSize="15dp"
         android:onClick="forgotPassword"
-        app:layout_constraintBottom_toTopOf="@+id/login_button"
+        android:text="Forgot Password?"
+
+
+        android:textSize="15dp"
+
+
         app:layout_constraintEnd_toEndOf="@+id/outlinedTextField2"
+
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outlinedTextField2"
-        app:layout_constraintVertical_bias="0.37" />
+        app:layout_constraintStart_toStartOf="@+id/outlinedTextField2"
+        app:layout_constraintTop_toBottomOf="@+id/outlinedTextField2" />
 
     <TextView
         android:id="@+id/textView"
@@ -164,28 +167,38 @@
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.355"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_button"
-        app:layout_constraintVertical_bias="0.339" />
+        app:layout_constraintVertical_bias="0.253" />
 
     <TextView
         android:id="@+id/newSign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SignUp"
-        android:fontFamily="@font/roboto_bold"
+        android:layout_marginStart="12dp"
         android:background="?android:selectableItemBackground"
         android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textSize="20dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="SignUp"
         android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.339" />
 
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
 
-
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:indeterminateDrawable="@drawable/progress"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/newSign_up"
+        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

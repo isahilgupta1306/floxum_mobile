@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ public class newLoginPage extends AppCompatActivity {
     int duration = 2000;
     TextInputLayout email_EditText ,password_EditText  ;
     TextInputEditText email_editText , password_editText ;
+    ProgressBar progressCircular ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,20 +50,23 @@ public class newLoginPage extends AppCompatActivity {
             //their edittexts
         password_editText =(TextInputEditText)findViewById(R.id.password);
         email_editText =(TextInputEditText)findViewById(R.id.email);
+        progressCircular =(ProgressBar)findViewById(R.id.progress_circular);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
                 if(TextUtils.isEmpty(email_editText.getText().toString()) ){
                     email_EditText.setError("Enter your E-mail address");
                     email_EditText.setFocusable(true);
-                    Toast.makeText(newLoginPage.this,"Pehle pw , email to daal bsdk" , Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(newLoginPage.this,"Pehle pw , email to daal bsdk" , Toast.LENGTH_SHORT).show();
                 }else if (TextUtils.isEmpty(password_editText.getText().toString())){
                     password_EditText.setError("Enter Password");
                     password_EditText.setFocusable(true);
                 }
                 else {
+
                     login();
 
                 }
@@ -88,6 +93,7 @@ public class newLoginPage extends AppCompatActivity {
 
 
     private void login() {
+        progressCircular.setVisibility(View.VISIBLE);
         String email = email_editText.getText().toString().trim();
         String password = password_editText.getText().toString().trim();
 
@@ -106,6 +112,7 @@ public class newLoginPage extends AppCompatActivity {
                       String token = response.body().string();
                       if(token.equalsIgnoreCase("\"Invalid Credentials!\""))
                         {
+                            progressCircular.setVisibility(View.INVISIBLE);
                             Toast.makeText(newLoginPage.this, token , Toast.LENGTH_LONG).show();
                         }
                       else
@@ -116,6 +123,7 @@ public class newLoginPage extends AppCompatActivity {
                       }
 
                     }else {
+                        progressCircular.setVisibility(View.INVISIBLE);
                         Toast.makeText(newLoginPage.this, "UnSuccesfull" , Toast.LENGTH_SHORT).show();
                     }
 
