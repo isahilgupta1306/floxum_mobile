@@ -211,7 +211,7 @@
         android:layout_marginTop="4dp"
         android:drawableStart="@drawable/ic_camera"
         android:drawableTint="@color/white"
-        android:shadowRadius="30dp"
+        android:shadowRadius="30"
         android:text="Add Photos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.113"

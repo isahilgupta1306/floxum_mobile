@@ -3,6 +3,7 @@ package com.artopher.floxum;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -33,6 +34,9 @@ public class newLoginPage extends AppCompatActivity {
     TextInputEditText email_editText , password_editText ;
     ProgressBar progressCircular ;
 
+    public  static final String SHARED_PREFS="sharedPrefs";
+    public static final String TOKEN = "token";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,8 @@ public class newLoginPage extends AppCompatActivity {
         password_editText =(TextInputEditText)findViewById(R.id.password);
         email_editText =(TextInputEditText)findViewById(R.id.email);
         progressCircular =(ProgressBar)findViewById(R.id.progress_circular);
+
+        tokenChecker();
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +125,7 @@ public class newLoginPage extends AppCompatActivity {
                       {
                           Toast.makeText(newLoginPage.this, "Login Succesfull" , Toast.LENGTH_LONG).show();
                           Intent intent = new Intent(getApplicationContext(),DefaultPage.class);
+                          saveToken(token);
                           startActivity(intent);
                       }
 
@@ -142,5 +149,28 @@ public class newLoginPage extends AppCompatActivity {
 
     }
 
+    private void saveToken(String token) {
+        SharedPreferences sharedPreferences= getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+
+        editor.putString(TOKEN,token);
+        editor.apply();
+    }
+
+    private String getToken()
+    {
+        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        return sharedPreferences.getString(TOKEN,"");
+    }
+
+    private void tokenChecker()
+    {
+        String token=getToken();
+        if(!token.isEmpty())
+        {
+            Intent intent = new Intent(getApplicationContext(),DefaultPage.class);
+            startActivity(intent);
+        }
+    }
 
 }
