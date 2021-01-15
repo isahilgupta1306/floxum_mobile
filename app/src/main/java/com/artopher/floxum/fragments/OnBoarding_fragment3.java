@@ -30,6 +30,7 @@ public class OnBoarding_fragment3 extends Fragment {
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), newLoginPage.class);
                     startActivity(intent);
+                    getActivity().finish();
                 }
             });
             return root;

@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.artopher.floxum.ApiClasses.ApiClients.ApiClientLogin;
+import com.artopher.floxum.fragments.ProfileFragment;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -126,6 +127,7 @@ public class newLoginPage extends AppCompatActivity {
                           Intent intent = new Intent(getApplicationContext(),DefaultPage.class);
                           saveToken(token);
                           startActivity(intent);
+                          finish(); 
                       }
 
                     }else {
@@ -154,6 +156,7 @@ public class newLoginPage extends AppCompatActivity {
 
         editor.putString(TOKEN,token);
         editor.apply();
+
     }
 
     private String getToken()

@@ -1,6 +1,8 @@
 package com.artopher.floxum.fragments;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,10 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.artopher.floxum.ExpandableHeightGridVIew;
 import com.artopher.floxum.R;
+import com.artopher.floxum.newLoginPage;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -125,6 +129,19 @@ public class ProfileFragment extends Fragment {
         CustomAdapter customAdapter = new CustomAdapter(images,getActivity());
 
         gridView.setAdapter(customAdapter);
+
+        Button logout = result.findViewById(R.id.logout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedPreferences= getContext().getSharedPreferences("sharedPrefs",0);
+                sharedPreferences.edit().clear().commit();
+                Intent intent = new Intent(getContext(), newLoginPage.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+
         return result;
     } 
 }
