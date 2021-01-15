@@ -10,6 +10,8 @@ import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.artopher.floxum.ApiClasses.ApiClients.ApiClientAddEvent;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -17,9 +19,14 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+
 public class EventForm extends AppCompatActivity {
-    TextInputEditText EventDateEditText , eventTime ;
-    TextInputLayout EventDateTextLayout , EventTimeTextLayout ;
+    TextInputEditText EventDateEditText , EventTime , EventTitle , ContactNumber , EventLink , EventLocaion , EventDescription;
+    TextInputLayout EventDateTextLayout , EventTimeTextLayout , EventTitleTextLayout ,
+            ContactNumberTextLayout , EventLinkTextLayout , EventLocationTextLayout , EventDescriptionTextLayout;
+    MaterialButton AddImage , SubmitButton ;
 
     final Calendar myCalendar = Calendar.getInstance();
 
@@ -30,21 +37,22 @@ public class EventForm extends AppCompatActivity {
 
         //Hooks of EditText
         EventDateEditText = findViewById(R.id.event_date);
-        eventTime = findViewById(R.id.event_time);
+        EventTime = findViewById(R.id.event_time);
+        EventTitle = findViewById(R.id.event_title);
+        ContactNumber = findViewById(R.id.contact_number);
+        EventLink = findViewById(R.id.event_link);
+        EventLocaion = findViewById(R.id.event_location);
+        EventDescription = findViewById(R.id.event_Description);
         //Hooks of Textinput Layout
         EventDateTextLayout = findViewById(R.id.eventdate);
         EventTimeTextLayout = findViewById(R.id.eventtime);
+        //Buttons
+        SubmitButton = findViewById(R.id.submit_button);
+        AddImage = findViewById(R.id.add_Photo);
 
 
-
-
-
-
-
-
-
-
-        EventDateEditText.setOnClickListener(new View.OnClickListener() {
+        //Code for TimePicker
+        EventTime.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -57,9 +65,9 @@ public class EventForm extends AppCompatActivity {
                 mTimePicker = new TimePickerDialog(EventForm.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        EventDateEditText.setText( selectedHour + ":" + selectedMinute);
+                        EventTime.setText( selectedHour + ":" + selectedMinute);
                     }
-                }, hour, minute, true);//Yes 24 hour time
+                }, hour, minute, false);
                 mTimePicker.setTitle("Select Time");
                 mTimePicker.show();
 
@@ -68,7 +76,7 @@ public class EventForm extends AppCompatActivity {
 
 
 
-
+        //Code of DatePicker
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
             @Override
@@ -83,7 +91,7 @@ public class EventForm extends AppCompatActivity {
 
         };
 
-        eventTime.setOnClickListener(new View.OnClickListener() {
+        EventDateEditText.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -95,15 +103,40 @@ public class EventForm extends AppCompatActivity {
             }
         });
 
+        SubmitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                submit_form();
+            }
+        });
+
 
 
 
     }
 
+    private void submit_form() {
+        String eventTitle = EventTitle.getText().toString().trim() ;
+        String link = EventLink.getText().toString().trim();
+        String location = EventLocaion.getText().toString().trim();
+        String contact = ContactNumber.getText().toString().trim();
+        String date = EventDateEditText.getText().toString().trim();
+        String time = EventTime.getText().toString().trim();
+        String description = EventDescription.getText().toString().trim();
+
+        //String category = EventLink.getText().toString().trim();
+
+
+//        Call<ResponseBody> call = ApiClientAddEvent
+//                .getInstance()
+//                .getApi()
+//                .AddEvent(eventTitle , link , location , contact , date , time , description , );
+    }
+
     private void updateLabel() {
-        String myFormat = "MM/dd/yy"; //In which you need put here
+        String myFormat = "yy-MM-dd"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
-        eventTime.setText(sdf.format(myCalendar.getTime()));
+        EventDateEditText.setText(sdf.format(myCalendar.getTime()));
     }
 }

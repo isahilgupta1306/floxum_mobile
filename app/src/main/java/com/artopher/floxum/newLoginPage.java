@@ -29,7 +29,6 @@ public class newLoginPage extends AppCompatActivity {
     Button loginButton ;
     TextView forgot_pw , login_to_continue , newSign_up;
     ImageView login_girl;
-    int duration = 2000;
     TextInputLayout email_EditText ,password_EditText  ;
     TextInputEditText email_editText , password_editText ;
     ProgressBar progressCircular ;
@@ -122,7 +121,7 @@ public class newLoginPage extends AppCompatActivity {
                             Toast.makeText(newLoginPage.this, token , Toast.LENGTH_LONG).show();
                         }
                       else
-                      {
+                      {   progressCircular.setVisibility(View.INVISIBLE);
                           Toast.makeText(newLoginPage.this, "Login Succesfull" , Toast.LENGTH_LONG).show();
                           Intent intent = new Intent(getApplicationContext(),DefaultPage.class);
                           saveToken(token);
