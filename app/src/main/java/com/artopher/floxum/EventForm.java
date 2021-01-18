@@ -1,12 +1,17 @@
 package com.artopher.floxum;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -16,6 +21,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -23,10 +29,17 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 
 public class EventForm extends AppCompatActivity {
-    TextInputEditText EventDateEditText , EventTime , EventTitle , ContactNumber , EventLink , EventLocaion , EventDescription;
+    TextInputEditText EventDateEditText , EventTime , EventTitle , ContactNumber , EventLink , EventLocation , EventDescription;
     TextInputLayout EventDateTextLayout , EventTimeTextLayout , EventTitleTextLayout ,
             ContactNumberTextLayout , EventLinkTextLayout , EventLocationTextLayout , EventDescriptionTextLayout;
     MaterialButton AddImage , SubmitButton ;
+    ImageView image1 , image2 , image3 , image4 ;
+
+    private ArrayList<Uri> imageUris ;
+    //Request code to pick image
+    private static  final  int PICK_IMAGES_CODE = 0;
+    //Position of selected image
+    int position = 0;
 
     final Calendar myCalendar = Calendar.getInstance();
 
@@ -41,7 +54,7 @@ public class EventForm extends AppCompatActivity {
         EventTitle = findViewById(R.id.event_title);
         ContactNumber = findViewById(R.id.contact_number);
         EventLink = findViewById(R.id.event_link);
-        EventLocaion = findViewById(R.id.event_location);
+        EventLocation = findViewById(R.id.event_location);
         EventDescription = findViewById(R.id.event_Description);
         //Hooks of Textinput Layout
         EventDateTextLayout = findViewById(R.id.eventdate);
@@ -49,9 +62,25 @@ public class EventForm extends AppCompatActivity {
         //Buttons
         SubmitButton = findViewById(R.id.submit_button);
         AddImage = findViewById(R.id.add_Photo);
+        //ImageViews
+        image1 = findViewById(R.id.photo1);
+        image2 = findViewById(R.id.photo2);
+        image3 = findViewById(R.id.photo3);
+        image4 = findViewById(R.id.photo4);
+
+        //Initialisation of list
+        imageUris = new ArrayList<>();
 
 
-        //Code for TimePicker
+
+
+
+
+
+
+
+
+       //Code for TimePicker
         EventTime.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -103,6 +132,13 @@ public class EventForm extends AppCompatActivity {
             }
         });
 
+        AddImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pickImageIntent();
+            }
+        });
+
         SubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,12 +149,13 @@ public class EventForm extends AppCompatActivity {
 
 
 
+
     }
 
     private void submit_form() {
         String eventTitle = EventTitle.getText().toString().trim() ;
         String link = EventLink.getText().toString().trim();
-        String location = EventLocaion.getText().toString().trim();
+        String location = EventLocation.getText().toString().trim();
         String contact = ContactNumber.getText().toString().trim();
         String date = EventDateEditText.getText().toString().trim();
         String time = EventTime.getText().toString().trim();
@@ -133,10 +170,55 @@ public class EventForm extends AppCompatActivity {
 //                .AddEvent(eventTitle , link , location , contact , date , time , description , );
     }
 
+
+    //For DatePicker
     private void updateLabel() {
         String myFormat = "yy-MM-dd"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         EventDateEditText.setText(sdf.format(myCalendar.getTime()));
+    }
+
+    private void pickImageIntent(){
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE , true);
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent , "Select image(s)") , PICK_IMAGES_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if( requestCode == PICK_IMAGES_CODE){
+            if(requestCode == Activity.RESULT_OK){
+                if(data.getClipData() != null){
+                    //if picked multiple images
+                    int count = 4;
+                    //data.getClipData().getItemCount(); //number of picked image
+                    for (int i = 0 ; i<count ; i++){
+                        Uri imageUri = data.getClipData().getItemAt(i).getUri();
+                        imageUris.add(imageUri); //added to our list
+                    }
+                    String toast = imageUris.get(0).toString() ;
+                    Toast.makeText(EventForm.this , toast , Toast.LENGTH_SHORT);
+                    //set image to imageViews
+                    image1.setImageURI(imageUris.get(0));
+                    image2.setImageURI(imageUris.get(1));
+                    image3.setImageURI(imageUris.get(2));
+                    image4.setImageURI(imageUris.get(3));
+
+
+                }
+                else {
+                    //if selected single image
+                    Uri imageUri = data.getData();
+                    imageUris.add(imageUri);
+                    //set image to imageView
+                    image1.setImageURI(imageUris.get(0));
+                }
+            }
+        }
     }
 }
