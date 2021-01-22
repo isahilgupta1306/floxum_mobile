@@ -24,13 +24,12 @@
           app:expandedTitleTextAppearance="@style/ExpandedAppBar"
           app:collapsedTitleTextAppearance="@style/CollapsedAppBar"
           >
-          
+
           <androidx.appcompat.widget.AppCompatImageView
               android:layout_width="match_parent"
               android:layout_height="200dp"
-              android:src="@drawable/events_toolbar"
               android:scaleType="centerCrop"
-              />
+              android:src="@drawable/events_toolbar" />
           <com.google.android.material.appbar.MaterialToolbar
               android:layout_width="match_parent"
               android:layout_height="?actionBarSize"

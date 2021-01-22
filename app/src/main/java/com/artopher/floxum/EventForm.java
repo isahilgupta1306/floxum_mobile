@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -192,29 +194,59 @@ public class EventForm extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if( requestCode == PICK_IMAGES_CODE){
-            if(requestCode == Activity.RESULT_OK){
+            if(resultCode == Activity.RESULT_OK){
                 if(data.getClipData() != null){
                     //if picked multiple images
-                    int count = 4;
-                    //data.getClipData().getItemCount(); //number of picked image
+                   // int count = 4;
+                  int count= data.getClipData().getItemCount(); //number of picked image
                     for (int i = 0 ; i<count ; i++){
                         Uri imageUri = data.getClipData().getItemAt(i).getUri();
-                        imageUris.add(imageUri); //added to our list
+                        imageUris.add(i,imageUri); //added to our list
                     }
-                    String toast = imageUris.get(0).toString() ;
-                    Toast.makeText(EventForm.this , toast , Toast.LENGTH_SHORT);
+                   // String toast = imageUris.get(0).toString() ;
+                   // Toast.makeText(EventForm.this , toast , Toast.LENGTH_SHORT);
                     //set image to imageViews
-                    image1.setImageURI(imageUris.get(0));
-                    image2.setImageURI(imageUris.get(1));
-                    image3.setImageURI(imageUris.get(2));
-                    image4.setImageURI(imageUris.get(3));
+                    if(count==1)
+                    {
+                        image1.setImageURI(imageUris.get(imageUris.size()-1));
+//                        ClipboardManager clipBoard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+//                        ClipData clipData = ClipData.newPlainText("", "");
+//                        clipBoard.setPrimaryClip(clipData);
+                    }
+                    else if(count==2)
+                    {
+                        image1.setImageURI(imageUris.get(0));
+                        image2.setImageURI(imageUris.get(1));
+//                        ClipboardManager clipBoard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+//                        ClipData clipData = ClipData.newPlainText("", "");
+//                        clipBoard.setPrimaryClip(clipData);
+                    }
+                    else if(count==3)
+                    {
+                        image1.setImageURI(imageUris.get(0));
+                        image2.setImageURI(imageUris.get(1));
+                        image3.setImageURI(imageUris.get(2));
+//                        ClipboardManager clipBoard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+//                        ClipData clipData = ClipData.newPlainText("", "");
+//                        clipBoard.setPrimaryClip(clipData);
+                    }
+                    else if(count==4)
+                    {
+                        image1.setImageURI(imageUris.get(0));
+                        image2.setImageURI(imageUris.get(1));
+                        image3.setImageURI(imageUris.get(2));
+                        image4.setImageURI(imageUris.get(3));
+//                        ClipboardManager clipBoard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+//                        ClipData clipData = ClipData.newPlainText("", "");
+//                        clipBoard.setPrimaryClip(clipData);
+                    }
 
 
                 }
                 else {
                     //if selected single image
                     Uri imageUri = data.getData();
-                    imageUris.add(imageUri);
+                    imageUris.add(0,imageUri);
                     //set image to imageView
                     image1.setImageURI(imageUris.get(0));
                 }
