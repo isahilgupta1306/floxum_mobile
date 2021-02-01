@@ -1,3 +1,4 @@
+
 package com.artopher.floxum;
 
 import androidx.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.content.ClipboardManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.FileUtils;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -22,13 +24,21 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class EventForm extends AppCompatActivity {
     TextInputEditText EventDateEditText , EventTime , EventTitle , ContactNumber , EventLink , EventLocation , EventDescription;
@@ -144,7 +154,7 @@ public class EventForm extends AppCompatActivity {
         SubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submit_form();
+                submit_form(imageUris.get(0));
             }
         });
 
@@ -154,7 +164,7 @@ public class EventForm extends AppCompatActivity {
 
     }
 
-    private void submit_form() {
+    private void submit_form(Uri imageUri ) {
         String eventTitle = EventTitle.getText().toString().trim() ;
         String link = EventLink.getText().toString().trim();
         String location = EventLocation.getText().toString().trim();
@@ -162,14 +172,41 @@ public class EventForm extends AppCompatActivity {
         String date = EventDateEditText.getText().toString().trim();
         String time = EventTime.getText().toString().trim();
         String description = EventDescription.getText().toString().trim();
+//
+//        File originalFile = FileUtils.getFile(this , imageUri);
+//        RequestBody filePart = RequestBody.create(
+//                MediaType.parse(getContentResolver().getType(imageUri)),
+//                originalFile
+//                );
+//        MultipartBody.Part file = MultipartBody.Part.createFormData("image" , originalFile.getName(), filePart);
+        
 
-        //String category = EventLink.getText().toString().trim();
 
 
-//        Call<ResponseBody> call = ApiClientAddEvent
-//                .getInstance()
-//                .getApi()
-//                .AddEvent(eventTitle , link , location , contact , date , time , description , );
+
+
+        Call<ResponseBody> call = ApiClientAddEvent
+                .getInstance()
+                .getApi()
+                .AddEvent(eventTitle , link , location , contact , date , time , description );
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.isSuccessful()){
+                    try {
+                        String responseMessage = response.body().string();
+                        Toast.makeText(EventForm.this, responseMessage , Toast.LENGTH_LONG).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(EventForm.this,t.getMessage() , Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 

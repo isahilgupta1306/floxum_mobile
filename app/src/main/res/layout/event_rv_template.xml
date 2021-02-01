@@ -35,7 +35,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/dace_event_sample"
+                android:src="@drawable/dance_event_sample"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHeight_percent=".4"
                 app:layout_constraintStart_toStartOf="parent"
